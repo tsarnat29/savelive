@@ -11,7 +11,6 @@ const User = sequelize.define("user", {
   },
 });
 
-formData.append("unitId", dbData.selectedUnit.id);
 const Basket = sequelize.define("basket", {
   id: {
     type: DataTypes.INTEGER,
