@@ -11,21 +11,26 @@ const User = sequelize.define("user", {
   },
 });
 
+formData.append("unitId", dbData.selectedUnit.id);
 const Basket = sequelize.define("basket", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  psw: {
+  name_unit: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  head: {
+  titlee_sub: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  title_head: {
+  contacter: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  title_contacter: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -33,11 +38,23 @@ const Basket = sequelize.define("basket", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  name_sub: {
+  head: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  name_unit: {
+  phone_head: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  title_region: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  form_act: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  img: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -45,7 +62,7 @@ const Basket = sequelize.define("basket", {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  img: {
+  psw: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -101,15 +118,19 @@ const LogsBasket = sequelize.define("logsBasket", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  psw: {
+  name_unit: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  head: {
+  titlee_sub: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  title_head: {
+  contacter: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  title_contacter: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -117,23 +138,31 @@ const LogsBasket = sequelize.define("logsBasket", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  name_sub: {
+  head: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  name_unit: {
+  phone_head: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  potrebs: {
-    type: DataTypes.TEXT,
+  title_region: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  form_act: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  img: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   comment: {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  img: {
+  psw: {
     type: DataTypes.STRING,
     allowNull: false,
   },

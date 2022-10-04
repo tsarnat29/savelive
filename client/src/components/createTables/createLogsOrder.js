@@ -2,15 +2,20 @@ import { createLogsAuth, createLogs } from "../../http/dbDataAPI";
 export const createLogsOrder = (data, potrebs, paramAuth, paramCause) => {
   let nomer = data.id;
   let reason = paramCause;
+
   let {
-    psw,
-    head,
-    title_head,
-    phone_contacter,
-    name_sub,
     name_unit,
-    comment,
+    title_sub,
+    contacter,
+    title_contacter,
+    phone_contacter,
+    head,
+    phone_head,
+    title_region,
+    form_act,
     img,
+    comment,
+    psw,
   } = data;
 
   debugger;
@@ -19,30 +24,38 @@ export const createLogsOrder = (data, potrebs, paramAuth, paramCause) => {
     createLogsAuth({
       reason,
       nomer,
-      psw,
-      head,
-      title_head,
-      phone_contacter,
-      name_sub,
       name_unit,
-      comment,
+      title_sub,
+      contacter,
+      title_contacter,
+      phone_contacter,
+      head,
+      phone_head,
+      title_region,
+      form_act,
       potrebs,
       img,
+      comment,
+      psw,
     });
   } else {
     debugger;
     createLogs({
       reason,
       nomer,
-      psw,
-      head,
-      title_head,
-      phone_contacter,
-      name_sub,
       name_unit,
-      comment,
+      title_sub,
+      contacter,
+      title_contacter,
+      phone_contacter,
+      head,
+      phone_head,
+      title_region,
+      form_act,
       potrebs,
       img,
+      comment,
+      psw,
     });
   }
 };
