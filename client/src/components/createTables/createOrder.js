@@ -355,7 +355,10 @@ const CreateOrder = observer(() => {
       setErrDemands((t) => ({ ...t, demand: "" }));
 
       let potrebLogs = JSON.stringify(potrebs);
-
+      console.log(
+        "dbData.selectedUnit.title_sub=",
+        dbData.selectedUnit.title_sub
+      );
       formData.append("name_unit", name_unit);
       formData.append("title_sub", dbData.selectedUnit.title_sub);
       formData.append("contacter", contacter);
@@ -365,7 +368,7 @@ const CreateOrder = observer(() => {
       formData.append("phone_head", `${phone_head}`);
       formData.append("title_region", title_region);
       formData.append("potrebs", JSON.stringify(potrebs));
-      formData.append("formAct", formAct);
+      formData.append("form_act", formAct);
       formData.append("img", file);
       formData.append("comment", comment);
       formData.append("psw", psw);
@@ -374,6 +377,8 @@ const CreateOrder = observer(() => {
         createOrderAuth(formData).then((data) => {
           let paramAuth = true;
           let paramCause = "Створення нової заявки";
+          debugger;
+          console.log("data= ", data);
           createLogsOrder(data, potrebLogs, paramAuth, paramCause);
           alert(`Ваша заявка зареєстрована за номером ${data.id}`);
           clearSet();
@@ -400,6 +405,7 @@ const CreateOrder = observer(() => {
           інформації ви надасте - тим швидше отримаєте відповідь по вашому
           запиту.
         </h5>
+        <hr />
         <Form.Group className="mb-1" controlId="formUnit">
           <Form.Label>Номер військової частини А____ *</Form.Label>
           <Form.Control
@@ -415,6 +421,7 @@ const CreateOrder = observer(() => {
             }}
           />
         </Form.Group>
+        <hr />
 
         <Dropdown className="mt-1 mb-1">
           <Dropdown.Toggle variant="outline-dark">
@@ -429,6 +436,7 @@ const CreateOrder = observer(() => {
             }
           </Dropdown.Menu>
         </Dropdown>
+        <hr />
 
         <Form.Group className="mb-1" controlId="contacter">
           <Form.Label>
@@ -448,6 +456,7 @@ const CreateOrder = observer(() => {
             }}
           />
         </Form.Group>
+        <hr />
 
         <Form.Group className="mb-1" controlId="title_contacter">
           <Form.Label>
@@ -467,6 +476,7 @@ const CreateOrder = observer(() => {
             }}
           />
         </Form.Group>
+        <hr />
 
         <Form.Group className="mb-1" controlId="Phone">
           <Form.Label>
@@ -486,6 +496,7 @@ const CreateOrder = observer(() => {
             }}
           />
         </Form.Group>
+        <hr />
 
         <Form.Group className="mb-1" controlId="formHead">
           <Form.Label>
@@ -504,6 +515,7 @@ const CreateOrder = observer(() => {
             }}
           />
         </Form.Group>
+        <hr />
 
         <Form.Group className="mb-1" controlId="PhoneHead">
           <Form.Label>
@@ -523,6 +535,7 @@ const CreateOrder = observer(() => {
             }}
           />
         </Form.Group>
+        <hr />
 
         <Form.Group className="mb-1" controlId="formTitle">
           <Form.Label>
@@ -536,7 +549,7 @@ const CreateOrder = observer(() => {
             value={title_region}
             className="mt-1"
             onChange={(e) => {
-              setTitle(e.target.value);
+              setTitleRegion(e.target.value);
               let value = e.target.value;
               fValidateField("title_region", value);
             }}
@@ -548,9 +561,16 @@ const CreateOrder = observer(() => {
           Перелік потреб підрозділу. Просимо зважати на пріоритетні напрямки
           роботи Фонду.
         </h5>
+        <h5>
+          Для ввода кожної потреби потрібно натиснути кнопку з написом: Додати
+          потребу
+        </h5>
+        <hr />
+
         <Button className="btn btn-secondary" type="submit" onClick={addDemand}>
           Додати потребу
         </Button>
+        <hr />
 
         {potrebs.map((t) => (
           <Row className="mt-1" key={t.id}>
@@ -592,6 +612,7 @@ const CreateOrder = observer(() => {
             </Col>
           </Row>
         ))}
+        <hr />
 
         <Form.Group controlId="formAct">
           <Form.Label>
@@ -616,6 +637,7 @@ const CreateOrder = observer(() => {
             checked={formAct === "ні"}
           />
         </Form.Group>
+        <hr />
 
         <Form.Group className="mb-1 pt-3" controlId="orderFile">
           <Form.Label>
@@ -637,6 +659,7 @@ const CreateOrder = observer(() => {
             }}
           />
         </Form.Group>
+        <hr />
         <textarea
           name="comment"
           type="text"
@@ -649,6 +672,7 @@ const CreateOrder = observer(() => {
             fValidateField("comment", value);
           }}
         />
+        <hr />
         <Form.Control
           type="text"
           placeholder="Пароль, якщо хочете відстежувати стан заяви"
@@ -661,6 +685,7 @@ const CreateOrder = observer(() => {
             fValidateField("psw", value);
           }}
         />
+        <hr />
         <Button
           variant={"outline-dark"}
           className="mb-1"
@@ -669,6 +694,7 @@ const CreateOrder = observer(() => {
         >
           Завершити ввод заяви
         </Button>
+
         {!formValid && (
           <div className="error mt-1">
             <div style={{ borderTop: "red solid 1px" }}></div>
@@ -683,6 +709,7 @@ const CreateOrder = observer(() => {
             <div style={{ borderTop: "red solid 1px" }}></div>
           </div>
         )}
+        <hr />
         <Button
           variant={"outline-success"}
           className="mb-2"
@@ -692,6 +719,7 @@ const CreateOrder = observer(() => {
         >
           Зареєструвати
         </Button>
+        <hr />
       </Card>
     </Container>
   );

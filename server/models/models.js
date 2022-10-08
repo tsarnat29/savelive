@@ -21,7 +21,7 @@ const Basket = sequelize.define("basket", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  titlee_sub: {
+  title_sub: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -121,7 +121,7 @@ const LogsBasket = sequelize.define("logsBasket", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  titlee_sub: {
+  title_sub: {
     type: DataTypes.STRING,
     allowNull: false,
   },
