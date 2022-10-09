@@ -227,7 +227,8 @@ const CreateOrder = observer(() => {
 
       case "phone_contacter":
         field = isPhoneContacterV(value);
-        textErr = field === true ? "" : "Телефон: введіть номер за шаблоном";
+        textErr =
+          field === true ? "" : "Телефон контактера: введіть номер за шаблоном";
         setFormErrors((formErrors) => ({
           ...formErrors,
           phone_contacter: textErr,
@@ -247,7 +248,8 @@ const CreateOrder = observer(() => {
 
       case "phone_head":
         field = isPhoneHeadV(value);
-        textErr = field === true ? "" : "Телефон: введіть номер за шаблоном";
+        textErr =
+          field === true ? "" : "Телефон командира: введіть номер за шаблоном";
         setFormErrors((formErrors) => ({ ...formErrors, phone_head: textErr }));
         setPhoneHeadValid(field);
         fValidateForm();
