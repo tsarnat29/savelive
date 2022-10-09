@@ -7,13 +7,17 @@ class BasketController {
   async create(req, res, next) {
     try {
       let {
-        psw,
-        head,
-        title_head,
-        phone_contacter,
-        name_sub,
         name_unit,
+        title_sub,
+        contacter,
+        title_contacter,
+        phone_contacter,
+        head,
+        phone_head,
+        title_region,
+        form_act,
         comment,
+        psw,
         unitId,
         potrebs,
       } = req.body;
@@ -23,13 +27,17 @@ class BasketController {
       img.mv(path.resolve(__dirname, "..", "static", fileName));
 
       const order = await Basket.create({
-        psw,
-        head,
-        title_head,
-        phone_contacter,
-        name_sub,
         name_unit,
+        title_sub,
+        contacter,
+        title_contacter,
+        phone_contacter,
+        head,
+        phone_head,
+        title_region,
+        form_act,
         comment,
+        psw,
         unitId,
         img: fileName,
       });

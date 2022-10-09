@@ -6,7 +6,10 @@ client:
 Внести зміни в програму CreateLogsOrder.js
 server:
 Внести зміни в програму models.js
-Внести зміни в структуру даних в програмі orderController.js
+Внести зміни в структуру даних в програмах:
+-orderController.js
+-basketController.js
+-logController.js
 
 Зайти в базу даних
 Вибрати savelive->Shemas->public->Tables->baskets->Columns
