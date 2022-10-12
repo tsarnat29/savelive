@@ -1,16 +1,9 @@
 // перегляд заявки користувачем
 import React, { useState, useEffect } from "react";
-import {
-  Form,
-  Button,
-  Container,
-  Card,
-  Col,
-  Image,
-  Row,
-} from "react-bootstrap";
+import { Form, Button, Container, Row } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
 import { viewingOrder } from "../http/dbDataAPI";
+import OutForm from "./jsxcomponents/Outform";
 
 const ViewingOrder = observer(() => {
   const [basket, setBasket] = useState({ potrebs: [] });
@@ -99,56 +92,7 @@ const ViewingOrder = observer(() => {
         </Container>
       )}
 
-      {isBasket ? (
-        <Row>
-          <Col md={2}>
-            {/* <Image width={600} height={900} src={filejpg.jpg} /> */}
-          </Col>
-          <Col md={10}>
-            <Card className="m-auto pl-3 pr-3">
-              <div>
-                Контактна інформація (номер телефону особи, яка залишила заявку)
-              </div>
-              <div>{basket.phone_contacter}</div>
-              <hr />
-              <div>ПІБ командира підрозділу</div>
-              <div>{basket.head}</div>
-              <hr />
-              <div>Посада та звання</div>
-              <div>{basket.title_head}</div>
-              <hr />
-              <div>Номер бригади</div>
-              <div>{basket.name_sub}</div>
-              <hr />
-              <div>Назва підрозділу та № В/Ч</div>
-              <div>{basket.name_unit}</div>
-              <hr />
-              <h5>Перелік потреб</h5>
-              {basket.potrebs.map((t, index) => (
-                <Row className="mt-3 pl-3 pr-3" key={t.id}>
-                  {t.name}: {t.amount} | {t.status} | {t.comment}
-                  <hr />
-                </Row>
-              ))}
-              <hr />
-              <div>Коментарі</div>
-              <div>{basket.comment}</div>
-              <hr />
-              <Image
-                width={600}
-                style={{
-                  height: "auto",
-                  objectFit: "cover",
-                }}
-                src={process.env.REACT_APP_API_URL + basket.img}
-              />
-              <hr />
-            </Card>
-          </Col>
-        </Row>
-      ) : (
-        <Row>{fail}</Row>
-      )}
+      <OutForm basket={basket} isBasket={isBasket} fail={fail} />
     </Container>
   );
 });
