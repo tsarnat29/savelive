@@ -23,17 +23,17 @@ const Auth = observer(() => {
       if (isLogin) {
         data = await login(email, password);
       } else {
+        debugger;
         data = await registration(email, password);
       }
-      console.log("Auth: data", data);
-      console.log("Auth:user", user);
       // user.setUser(user);
       user.setRole(data.role);
       user.setUser(data);
       user.setIsAuth(true);
       navigate(ORDER_ROUTE);
     } catch (e) {
-      alert(e);
+      debugger;
+      alert(e.request.responseText);
     }
   };
 
