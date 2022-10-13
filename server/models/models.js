@@ -178,7 +178,6 @@ const LogsUnit = sequelize.define("logsUnit", {
   },
   title_sub: {
     type: DataTypes.STRING,
-    unique: true,
     allowNull: false,
   },
   section: {
