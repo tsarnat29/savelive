@@ -1,3 +1,15 @@
+1. Установлюваемо postgresql и pgAdmin на компьютер.
+В pgAdmin ПКМ по Databases. Create. Database. Вводимо им'я БД.
+яке співпадає с именем папки проекта, тобто savelive. Перевіряемо, що БД створена.(Refresh)
+2. Terminal -> Split Terminal. Одна частина для сервера, інша для клієнта.
+3. Запуск server. 
+  D:\savelive\cd server
+  D:\savelive\server npm run dev
+4. Запуск client.
+  D:\savelive\cd client
+  D:\savelive\client npm start
+
+  
 - Якщо змінюється вхідна форма з заявкою.
 
 Зробити зміни в програмах, які розташовані в папках client та server:
